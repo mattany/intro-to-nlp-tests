@@ -1,0 +1,20 @@
+# Copy this file to `unit_1/config.py` and set the values for your project.
+
+# Absolute path to the repository containing your BPETokenizer implementation.
+PROJECT_ROOT = "/path/to/your/bpe-tokenizer"
+
+# Dotted Python module path (relative to PROJECT_ROOT) and class name.
+MODULE_NAME = "src.bpe_tokenizer"
+CLASS_NAME = "BPETokenizer"
+
+# Attribute names stored on your BPETokenizer instance.
+# Leave an attribute as None if your `train_bpe` returns `(merge_rules, vocabulary)`
+# instead of storing them on `self`.
+PRE_TOKENS_ATTR = "pretokens"
+MERGE_RULES_ATTR = "merge_rules"
+VOCABULARY_ATTR = "vocabulary"
+
+# Optional path to your project's virtualenv (defaults to `<PROJECT_ROOT>/.venv`
+# or `<PROJECT_ROOT>/venv` when None, so your project's own uv/venv dependencies
+# are importable during test runs).
+PROJECT_VENV = None
