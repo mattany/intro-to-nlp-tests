@@ -183,16 +183,16 @@ ALICE_300_FIRST_10_MERGES = [
 ]
 
 ALICE_300_LAST_10_MERGES = [
+    ("w", "ell"),
+    ("see", "m"),
+    ("su", "ch"),
     ("H", "ow"),
     ("sh", "ould"),
-    ("lo", "ng"),
+    ("l", "ong"),
     ("m", "in"),
+    ("ar", "ch"),
+    ("er", "p"),
     ("D", "or"),
-    ("Dor", "mouse"),
-    ("E", "R"),
-    ("d", "ay"),
-    ("af", "ter"),
-    ("O", "U"),
 ]
 
 QUESTION_6_EXPECTED_TOKENS = {
@@ -200,23 +200,93 @@ QUESTION_6_EXPECTED_TOKENS = {
         "Alice", "was", "beg", "in", "ning", "to", "get", "very", "ti", "re", "d", ".",
     ],
     "The rabbit disappeared down the hole.": [
-        "The", "r", "ab", "bit", "d", "i", "sa", "ppe", "a", "re", "d",
-        "d", "ow", "n", "the", "ho", "le", ".",
+        "The", "r", "abbit", "d", "i", "sa", "p", "pe", "are", "d",
+        "down", "the", "ho", "le", ".",
     ],
     "Modern language models are based on the Transformer architecture.": [
-        "M", "o", "d", "er", "n", "l", "an", "g", "u", "a", "ge",
-        "m", "o", "de", "l", "s", "a", "re", "b", "as", "ed", "on",
+        "M", "o", "der", "n", "l", "an", "g", "u", "a", "ge",
+        "mo", "de", "l", "s", "are", "b", "as", "ed", "on",
         "the", "T", "r", "an", "s", "for", "m", "er", "arch", "ite",
-        "ct", "u", "re", ".",
+        "ct", "ure", ".",
     ],
 }
 
 QUESTION_7_EXPECTED_STATS = {
-    50: {"vocab_size": 121, "total_tokens": 84},
-    100: {"vocab_size": 171, "total_tokens": 77},
-    200: {"vocab_size": 271, "total_tokens": 69},
-    500: {"vocab_size": 571, "total_tokens": 61},
-    1000: {"vocab_size": 1071, "total_tokens": 57},
+    50: {
+        "vocab_size": 121,
+        "total_tokens": 84,
+        "sentences": {
+            "Alice was beginning to get very tired.": [
+                "Alice", "was", "be", "g", "in", "n", "ing", "to", "g", "e", "t", "ver", "y", "t", "i", "re", "d", ".",
+            ],
+            "The rabbit disappeared down the hole.": [
+                "T", "he", "r", "a", "b", "b", "it", "d", "i", "sa", "p", "p", "e", "a", "re", "d", "d", "ow", "n", "the", "h", "o", "le", ".",
+            ],
+            "Modern language models are based on the Transformer architecture.": [
+                "M", "o", "d", "er", "n", "l", "an", "g", "u", "a", "g", "e", "m", "o", "d", "e", "l", "s", "a", "re", "b", "as", "ed", "on", "the", "T", "r", "an", "s", "f", "or", "m", "er", "ar", "ch", "it", "e", "c", "t", "u", "re", ".",
+            ],
+        },
+    },
+    100: {
+        "vocab_size": 171,
+        "total_tokens": 76,
+        "sentences": {
+            "Alice was beginning to get very tired.": [
+                "Alice", "was", "be", "g", "in", "n", "ing", "to", "ge", "t", "very", "ti", "re", "d", ".",
+            ],
+            "The rabbit disappeared down the hole.": [
+                "The", "r", "ab", "b", "it", "d", "i", "sa", "p", "p", "e", "a", "re", "d", "d", "own", "the", "h", "o", "le", ".",
+            ],
+            "Modern language models are based on the Transformer architecture.": [
+                "M", "o", "d", "er", "n", "l", "an", "g", "u", "a", "ge", "m", "o", "d", "e", "l", "s", "a", "re", "b", "as", "ed", "on", "the", "T", "r", "an", "s", "for", "m", "er", "ar", "ch", "it", "e", "c", "t", "u", "re", ".",
+            ],
+        },
+    },
+    200: {
+        "vocab_size": 271,
+        "total_tokens": 66,
+        "sentences": {
+            "Alice was beginning to get very tired.": [
+                "Alice", "was", "beg", "in", "n", "ing", "to", "get", "very", "ti", "re", "d", ".",
+            ],
+            "The rabbit disappeared down the hole.": [
+                "The", "r", "ab", "bit", "d", "i", "sa", "p", "pe", "are", "d", "down", "the", "h", "o", "le", ".",
+            ],
+            "Modern language models are based on the Transformer architecture.": [
+                "M", "o", "d", "er", "n", "l", "an", "g", "u", "a", "ge", "mo", "de", "l", "s", "are", "b", "as", "ed", "on", "the", "T", "r", "an", "s", "for", "m", "er", "ar", "ch", "ite", "c", "t", "u", "re", ".",
+            ],
+        },
+    },
+    500: {
+        "vocab_size": 571,
+        "total_tokens": 55,
+        "sentences": {
+            "Alice was beginning to get very tired.": [
+                "Alice", "was", "begin", "ning", "to", "get", "very", "ti", "re", "d", ".",
+            ],
+            "The rabbit disappeared down the hole.": [
+                "The", "r", "abbit", "di", "sa", "p", "pe", "are", "d", "down", "the", "ho", "le", ".",
+            ],
+            "Modern language models are based on the Transformer architecture.": [
+                "M", "o", "der", "n", "l", "ang", "u", "a", "ge", "mo", "de", "l", "s", "are", "b", "as", "ed", "on", "the", "T", "ran", "s", "for", "m", "er", "arch", "ite", "ct", "ure", ".",
+            ],
+        },
+    },
+    1000: {
+        "vocab_size": 1071,
+        "total_tokens": 51,
+        "sentences": {
+            "Alice was beginning to get very tired.": [
+                "Alice", "was", "beginning", "to", "get", "very", "ti", "red", ".",
+            ],
+            "The rabbit disappeared down the hole.": [
+                "The", "r", "abbit", "di", "sa", "p", "pe", "ared", "down", "the", "ho", "le", ".",
+            ],
+            "Modern language models are based on the Transformer architecture.": [
+                "M", "o", "der", "n", "l", "ang", "u", "age", "mo", "de", "l", "s", "are", "b", "as", "ed", "on", "the", "T", "ran", "s", "for", "m", "er", "arch", "ite", "ct", "ure", ".",
+            ],
+        },
+    },
 }
 
 
@@ -301,17 +371,18 @@ def test_question_5f_sentences_at_300_merges(
 def test_question_5g_vocab_size_and_total_tokens(
     alice_corpus_text: str,
     n_merges: int,
-    expected: dict[str, int],
+    expected: dict[str, Any],
 ):
     tokenizer = create_tokenizer()
     tokenizer.prepare_corpus(alice_corpus_text)
     train_return = tokenizer.train_bpe(n_merges)
 
     vocab = extract_vocabulary(tokenizer, train_return)
-    total_tokens = sum(
-        len(tokenizer.tokenize(sentence))
-        for sentence in QUESTION_6_EXPECTED_TOKENS
-    )
+    total_tokens = 0
+    for sentence, expected_sentence_tokens in expected["sentences"].items():
+        tokens = list(tokenizer.tokenize(sentence))
+        assert tokens == expected_sentence_tokens
+        total_tokens += len(tokens)
 
     assert len(vocab) == expected["vocab_size"]
     assert total_tokens == expected["total_tokens"]
