@@ -1,0 +1,13 @@
+# Copy this file to `unit_2/config.py` and set the values for your project.
+
+# Absolute path to the repository containing your n-gram language model.
+PROJECT_ROOT = "/path/to/your/n-gram"
+
+# Dotted Python module path (relative to PROJECT_ROOT) and class name.
+MODULE_NAME = "n_gram_lm"
+CLASS_NAME = "NGramLanguageModel"
+
+# Optional path to your project's virtualenv (defaults to `<PROJECT_ROOT>/.venv`
+# or `<PROJECT_ROOT>/venv` when None, so your project's own uv/venv dependencies
+# are importable during test runs).
+PROJECT_VENV = None

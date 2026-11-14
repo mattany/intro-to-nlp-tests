@@ -5,3 +5,4 @@ venv/
 .idea/
 .DS_Store
 unit_1/config.py
+unit_2/config.py
